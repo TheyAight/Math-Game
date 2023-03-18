@@ -1,22 +1,23 @@
 import random
 import time
-
+#point counter variable
 points = 0
 
+#level select that only allows select strings and will print a prompt if the input string is invalid
 while True:
     level = input("what level do you want to try? \n   Easy | Normal | Hard  : ")
     accepted_strings = {'Easy', 'Normal', 'Hard'}
     if level in accepted_strings:
-        tic = time.perf_counter()
+        tic = time.perf_counter() #starts clock 
         break
     else:
         print("Check spelling and capitalization")
-
+# level easy that picks a random range of numbers 1-5
 while level == "Easy":
     Num1 = (random.randrange(0,10))
     Num2 = (random.randrange(0,10))
-    sum = Num1 + Num2
-
+    sum = Num1 + Num2 #sets the correct answer
+#asks user for input then will comparec it against the correct answer
     ans = int(input("{} + {} = ".format(Num1,Num2)))
     if ans == sum:
         print("Correct!")
@@ -24,9 +25,9 @@ while level == "Easy":
     else:
         print("Incorrect")
         toc = time.perf_counter()
-        tim = toc - tic
+        tim = toc - tic #used to end the clock so it can be printed to screen
         print("You scored {} in {} seconds.\nProgram will close soon, please wait.".format(points, round(tim,2)))
-        time.sleep(5)
+        time.sleep(5) #stops the program for 5 seconds before quit
         break
    
 while level == "Normal":
@@ -112,3 +113,4 @@ while level == "Hard":
             print("You scored {} in {} seconds.\nProgram will close soon, please wait.".format(points, round(tim,2)))
             time.sleep(5)
             break
+
